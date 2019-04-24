@@ -15,8 +15,8 @@
 		<div class="cw1200">
 			<div class="pic"><img src="{{ MEDIA_URL }}{{ diary.user.portrait }}"/></div>
 			<div class="meta">
-				<label>作者：{{ diary.user.nickname }}。</label>
-				<span>发布于：{{ diary.add_times }}</span>
+				<label>author：{{ diary.user.nickname }}。</label>
+				<span>released time：{{ diary.add_times }}</span>
 			</div>
             <script type="text/javascript">
                 function operation(opertype, diary_id)
@@ -74,7 +74,7 @@
                         <img class="favimg" src="{% if hasfav %}
                         {% static 'images/favour_ico2.png' %}{% else %}{% static 'images/favour_ico.png' %}
                         {% endif %}"/>
-                        <p>{{ diary.praisenum }}个赞</p>
+                        <p>{{ diary.praisenum }} likes</p>
                     </div>
 				</a>
 				<a href="javascript:void(0);" onclick="operation('coll',{{ diary.id }})">
@@ -82,7 +82,7 @@
                         <img class="collimg" src="{% if hascoll %}
                             {% static 'images/collection_ico2.png' %}{% else %}{% static 'images/collection_ico.png' %}
                             {% endif %}"/>
-                        <p>{{ diary.collectnum }}个收藏</p>
+                        <p>{{ diary.collectnum }} favorites</p>
                     </div>
 				</a>
 			</div>
@@ -132,9 +132,9 @@
 						<img src="{{ MEDIA_URL }}{{ request.user.portrait }}"/>
                         <form method="post" action="{% url 'operation:comments' %}">
                         <input name="diaryid" value="{{ diary.id }}" hidden/>
-						<input class="text" type="text" name="comment" placeholder="说说你的看法..."/>
+						<input class="text" type="text" name="comment" placeholder="comment..."/>
                         {% csrf_token %}
-						<input class="submit" type="submit" value="发表"/>
+						<input class="submit" type="submit" value="publish"/>
                         </form>
 						<div class="clear"></div>
 					</div>
@@ -150,8 +150,8 @@
                                         + '<p>{{ comm_diary.comments }}</p>'
                                         + '<span>发表于：{{ comm_diary.add_time|date:"Y-m-d H:i"  }}</span>'
                                         + '</div><div class="tip">{% if forloop.revcounter == 1 %}' +
-                                        '<span class="t_a t_box">沙发</span>{% elif forloop.revcounter == 2 %}<span class="t_b t_box">板凳</span>'
-                                        + '{% elif forloop.revcounter == 3 %}<span class="t_c t_box">地板</span>{% else %}'
+                                        '<span class="t_a t_box">fitst</span>{% elif forloop.revcounter == 2 %}<span class="t_b t_box">second</span>'
+                                        + '{% elif forloop.revcounter == 3 %}<span class="t_c t_box">third</span>{% else %}'
                                         + '<span>{{ forloop.revcounter }}#</span>{% endif %}</div></li>{% endfor %}')
 
                                     $("#ordercomment").removeClass()
@@ -164,10 +164,10 @@
                                         '<div class="pic"><img src="{{ MEDIA_URL }}{{ comm_diary.user.portrait }}"/></div>'
                                         + '<div class="con"><label>{{ comm_diary.user.nickname }}</label>'
                                         + '<p>{{ comm_diary.comments }}</p>'
-                                        + '<span>发表于：{{ comm_diary.add_time|date:"Y-m-d H:i"  }}</span>'
+                                        + '<span>released time：{{ comm_diary.add_time|date:"Y-m-d H:i"  }}</span>'
                                         + '</div><div class="tip">{% if forloop.counter == 1 %}' +
-                                        '<span class="t_a t_box">沙发</span>{% elif forloop.counter == 2 %}<span class="t_b t_box">板凳</span>'
-                                        + '{% elif forloop.counter == 3 %}<span class="t_c t_box">地板</span>{% else %}'
+                                        '<span class="t_a t_box">first</span>{% elif forloop.counter == 2 %}<span class="t_b t_box">second</span>'
+                                        + '{% elif forloop.counter == 3 %}<span class="t_c t_box">third</span>{% else %}'
                                         + '<span>{{ forloop.counter }}#</span>{% endif %}</div></li>{% endfor %}')
 
                                     $("#ordercomment").removeClass()
@@ -178,9 +178,9 @@
 
                             </script>
 
-							<a class="cur" id="newcomment" href="javascript:void(0);" onclick="newComments()">最新评论</a>
+							<a class="cur" id="newcomment" href="javascript:void(0);" onclick="newComments()">latest mews</a>
                             <span>|</span>
-                            <a  id="ordercomment" href="javascript:void(0);" onclick="order()">正序排列</a>
+                            <a  id="ordercomment" href="javascript:void(0);" onclick="order()">order</a>
 						</div>
 						<ul id="commentlist">
                             {% for comm_diary in comm_diarys %}
@@ -189,15 +189,15 @@
 								<div class="con">
 									<label>{{ comm_diary.user.nickname }}</label>
 									<p>{{ comm_diary.comments }}</p>
-									<span>发表于：{{ comm_diary.add_time|date:"Y-m-d H:i"  }}</span>
+									<span>released time：{{ comm_diary.add_time|date:"Y-m-d H:i"  }}</span>
 								</div>
 								<div class="tip">
                                     {% if forloop.revcounter == 1 %}
-								        <span class="t_a t_box">沙发</span>
+								        <span class="t_a t_box">first</span>
                                     {% elif forloop.revcounter == 2 %}
-                                        <span class="t_b t_box">板凳</span>
+                                        <span class="t_b t_box">second</span>
                                     {% elif forloop.revcounter == 3 %}
-                                        <span class="t_c t_box">地板</span>
+                                        <span class="t_c t_box">third</span>
                                     {% else %}
                                         <span>{{ forloop.revcounter }}#</span>
 								    {% endif %}
@@ -218,7 +218,7 @@
 					<div class="con">
 						<div class="lamp_ico"><img src="{% static 'images/lamp_ico.png' %}"/></div>
 						<div class="name"><img src="{% static 'images/f_t_other_share.png' %}"/></div>
-						<div class="more"><a href="note_list.html">更多>></a></div>
+						<div class="more"><a href="note_list.html">more>></a></div>
 					</div>
 					<div class="fr"><img src="{% static 'images/from_title_right.png' %}"/></div>
 					<div class="clear"></div>
@@ -235,7 +235,7 @@
 							</div>
 							<div class="meta">
 								<p><a href="{% url 'diarys:details' new_diary.id %}">{{ new_diary.title }}</a></p>
-								<span>作者：{{ new_diary.user.nickname }}。<label><img src="{% static 'images/state_icon1.png' %}"/>{{ new_diary.checknum }}</label><label><img src="{% static 'images/state_icon2.png' %}"/>{{ new_diary.commentsnum }}</label></span>
+								<span>author：{{ new_diary.user.nickname }}。<label><img src="{% static 'images/state_icon1.png' %}"/>{{ new_diary.checknum }}</label><label><img src="{% static 'images/state_icon2.png' %}"/>{{ new_diary.commentsnum }}</label></span>
 							</div>
 						</li>
                         {% endfor %}

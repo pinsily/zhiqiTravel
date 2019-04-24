@@ -1,5 +1,5 @@
 ﻿{% extends 'shopbase.html' %}
-{% block head_title %}确认订单{% endblock %}
+{% block head_title %}order confirmation{% endblock %}
 {% load operation_extras %}
 {% block content %}
 <!-----------------确认订单---------------->
@@ -7,29 +7,29 @@
 	<div class="cw1000">
 		<!-----------------收货人信息---------------->
 		<div class="addr_list">
-			<h2>收货人信息</h2>
+			<h2>receiver's info</h2>
 			<ul class="contact">
                 {% for con in contactinfo %}
                     <li {% if forloop.counter == 1 %}class="cur"{% endif %}>
 					    <h1><span>{{ con.name }}</span>&nbsp;&nbsp;&nbsp;<span>{{ con.mobile }}</span></h1>
 					    <p>{% QueryTheAddress con.city_addr %} {{ con.address }}</p>
-                        <p>邮编：<span>{{ con.zip_code }}</span></p>
+                        <p>zip code：<span>{{ con.zip_code }}</span></p>
 				    </li>
                 {% endfor %}
 				<div class="clear"></div>
 			</ul>
-			<div class="add"><a href="{% url 'userinfo' 'contact' %}">收货人添加与管理</a></div>
+			<div class="add"><a href="{% url 'userinfo' 'contact' %}">receiver's inputs</a></div>
 		</div>
 
 		<!-----------------送货清单---------------->
 		<div class="list_box">
-			<h2>送货清单</h2>
+			<h2>order details</h2>
 			<table>
 				<tr>
-					<th>商品名称</th>
-					<th>单价</th>
-					<th>数量</th>
-					<th>小计</th>
+					<th>good's name</th>
+					<th>unit price</th>
+					<th>quantity</th>
+					<th>total price</th>
 				</tr>
                 {% if goodsinfo %}
                     {% for good in goodsinfo %}
@@ -38,7 +38,7 @@
 						<div class="pic"><a href="#"><img width=53 height=53 src="{{ MEDIA_URL }}{{ good.product.mainimg }}" /></a></div>
 						<div class="name">
 							<a href="{% url 'shop:pro_detail' good.product.id %}">{{ good.product.name }}</a>
-							<p>添加日期：{{ good.add_time|date:"Y-m-d" }}</p>
+							<p>time：{{ good.add_time|date:"Y-m-d" }}</p>
 						</div>
 						<div class="clear"></div>
 					</td>
@@ -53,7 +53,7 @@
 						<div class="pic"><a href="#"><img width=53 height=53 src="{{ MEDIA_URL }}{{ goods.product.mainimg }}" /></a></div>
 						<div class="name">
 							<a href="{% url 'shop:pro_detail' goods.product.id %}">{{ goods.product.name }}</a>
-							<p>添加日期：{% now "Y-m-d" %}</p>
+							<p>timing：{% now "Y-m-d" %}</p>
 						</div>
 						<div class="clear"></div>
 					</td>
@@ -66,15 +66,16 @@
 
 		</div>
 		<div class="pay_method">
-			<h2>支付方式</h2>
+			<h2>payment options</h2>
 			<ul class="pay">
-				<li><a class="cur" href="javascript:void(0)">支付宝支付</a><span>← 选择支付宝支付商品金额</span></li>
-				<li><a href="javascript:void(0)">微信支付</a><span>← 选择微信钱包支付商品金额</span></li>
+                <li><a class="cur" href="javascript:void(0)">orange-money</a><span>← use orange-money for payment </span></li>
+				<li><a class="cur" href="javascript:void(0)">alipay</a><span>← 选择支付宝支付商品金额</span></li>
+				<li><a href="javascript:void(0)">wechat payment</a><span>← 选择微信钱包支付商品金额</span></li>
 			</ul>
 		</div>
 		<div class="calculation">
 			<input type="button" id="settlement" value="结算" />
-			<span>应付金额（含运费{{ totalfreight }}{{ freight }}元）： <b>￥{{ totalprice }}{{ price }}</b></span>
+			<span>balances（include shiping costs{{ totalfreight }}{{ freight }}$）： <b>${{ totalprice }}{{ price }}</b></span>
 
 		</div>
 	</div>
@@ -119,7 +120,7 @@
                 $('form').submit()
             }
             else {
-                alert('该支付方式暂未开通！')
+                alert('your payment is processing！')
             }
 
 

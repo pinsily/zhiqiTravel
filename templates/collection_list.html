@@ -1,11 +1,11 @@
 {% extends 'userbase.html' %}
-{% block title %}我的收藏{% endblock %}
+{% block title %}my collections{% endblock %}
 {% load staticfiles %}
 {% block framework %}
     <div class="cw1000">
 	<div class="public_box pd30">
 		<div class="list_title">
-			<h2>我的收藏</h2>
+			<h2>my collection</h2>
 		</div>
 		<!-----------------游记列表---------------->
 		<div class="note_list">
@@ -16,14 +16,14 @@
 					<div class="con">
 						<a href="{% url 'diarys:details' collect.diary_id %}"><h3>{{ collect.diary.title }}</h3></a>
 						<div class="user">
-							<span><img src="{{ MEDIA_URL }}{{ collect.diary.user.portrait }}" />作者：<font>{{ collect.diary.user.nickname }}</font></span>
+							<span><img src="{{ MEDIA_URL }}{{ collect.diary.user.portrait }}" />author：<font>{{ collect.diary.user.nickname }}</font></span>
 							<label><img src="{% static 'images/state_icon1.png' %}" />{{ collect.diary.checknum }}</label>
 							<label><img src="{% static 'images/state_icon2.png' %}" />{{ collect.diary.commentsnum }}</label>
 						</div>
 						<p>{{ collect.diary.content|striptags|truncatechars:"150" }}</p>
 					</div>
 					<div class="operation">
-						<a href="#"><i class="del_ico"></i>删除</a>
+						<a href="#"><i class="del_ico"></i>delete</a>
 					</div>
 				</li>
                 {% endfor %}

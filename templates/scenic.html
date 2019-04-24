@@ -51,7 +51,7 @@
         <div id="scenic_head" style="background:url({{ MEDIA_URL }}{{ scenic.picture }}) no-repeat center;background-size:100%;">
 	<div class="cw1200">
 		<div class="title"><p>{{ scenic.name }}</p></div>
-		<a href="#" class="view_gallery" id="botn">查看图库<i class="am-icon-chevron-circle-right"></i></a>
+		<a href="#" class="view_gallery" id="botn">visit gallery<i class="am-icon-chevron-circle-right"></i></a>
 
 		<ul style="display:none;" data-am-widget="gallery" class="am-gallery am-avg-sm-2 am-avg-md-3 am-avg-lg-4 am-gallery-default" data-am-gallery="{ pureview: true }" >
 		  {% for gallery in gallerys  %}
@@ -119,7 +119,7 @@
 				<div id="comment">
 					<div class="list">
 						<div class="tag">
-							<a class="cur" href="javascript:void(0);">景区评论({{ comments.count }})</a>
+							<a class="cur" href="javascript:void(0);">comment({{ comments.count }})</a>
 						</div>
 						<ul>
                             {% for comment in comments %}
@@ -128,7 +128,7 @@
 								<div class="con">
 									<label>{{ comment.user.nickname }}</label>
 									<p>{{ comment.comments }}</p>
-									<span>发表于：{{ comment.add_time|date:"Y-m-d H:i"}}</span>
+									<span>released time：{{ comment.add_time|date:"Y-m-d H:i"}}</span>
 								</div>
 							</li>
                             {% endfor %}
@@ -153,13 +153,13 @@
 				<!------------------在线预订-------------------->
 				<div id="online_book">
 					<ul>
-						<li>景区名称：<span>{{ scenic.name }}</span></li>
-						<li>电话咨询：<span>{{ scenic.phone }}</span></li>
-						<li>开放时间：<span>{{ scenic.businessHours }}</span></li>
-						<li>详细地址：<span>{{ scenic.address }}</span></li>
-						<li>费用：<label>￥{{ scenic.price }}</label></li>
+						<li>name：<span>{{ scenic.name }}</span></li>
+						<li>contract：<span>{{ scenic.phone }}</span></li>
+						<li>visit time：<span>{{ scenic.businessHours }}</span></li>
+						<li>detail address：<span>{{ scenic.address }}</span></li>
+						<li>cost：<label>￥{{ scenic.price }}</label></li>
 					</ul>
-					<a class="buy" href="{% url 'operation:travelbuy' %}?list_type=scenic&id={{ scenic.id }}">立即预订</a>
+					<a class="buy" href="{% url 'operation:travelbuy' %}?list_type=scenic&id={{ scenic.id }}">book now</a>
 				</div>
 			</div>
 			<!------------------公共盒子-------------------->
@@ -181,8 +181,8 @@
 							<div class="pic"><a title="" href="{% url 'shop:pro_detail' product.id %}"><img style="width: 100%;height: 100%" alt="" class="scale-effect" src="{{ MEDIA_URL }}{{ product.mainimg }}"/></a></div>
 							<div class="con">
 								<a href="{% url 'shop:pro_detail' product.id %}">{{ product.name }}</a>
-								<p>价格： ￥{{ product.price }}</p>
-								<span>销量: {{ product.buyers }}</span>
+								<p>price： ￥{{ product.price }}</p>
+								<span>sales volume: {{ product.buyers }}</span>
 							</div>
 							<div class="clear"></div>
 						</li>

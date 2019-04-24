@@ -28,12 +28,7 @@ $(".prev,.next").hover(function(){
 $(".h_banner").slide({ titCell:".num ul" , mainCell:".h_b_list" , effect:"fold", autoPlay:true, delayTime:700 , autoPage:true });
 </script>
 
-<!------------------广告-------------------->
-<div class="h_gg">
-    <a title="" href="https://www.zhihu.com/people/zhiqi-kou/columns"><img alt="" src="{% static 'images/g1.jpg' %}"/></a>
-    <a title="" href="https://github.com/ZhiqiKou?tab=repositories"><img alt="" src="{% static 'images/g2.jpg' %}"/></a>
-    <a title="" href="#"><img alt="" src="{% static 'images/g3.jpg' %}"/></a>
-</div>
+
 <!------------------精彩活动-------------------->
 <div class="h_bg1_g"></div>
 <div id="h_activity">
@@ -67,7 +62,7 @@ $(".h_banner").slide({ titCell:".num ul" , mainCell:".h_b_list" , effect:"fold",
                     {% endfor %}
                     <div class="clear"></div>
                 </ul>
-                <div class="more"><a href="{% url 'scenicspots:all' %}?list_type=scenic">热门景区<span>+</span></a></div>
+                <div class="more"><a href="{% url 'scenicspots:all' %}?list_type=scenic">V<span>+</span></a></div>
 
             </div>
             <div class="box">
@@ -77,7 +72,7 @@ $(".h_banner").slide({ titCell:".num ul" , mainCell:".h_b_list" , effect:"fold",
                     {% endfor %}
                     <div class="clear"></div>
                 </ul>
-                <div class="more"><a title="" href="{% url 'scenicspots:all' %}?list_type=scenic">休闲度假<span>+</span></a></div>
+                <div class="more"><a title="" href="{% url 'scenicspots:all' %}?list_type=scenic">E<span>+</span></a></div>
             </div>
             <div class="clear"></div>
         </div>

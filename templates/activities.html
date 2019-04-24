@@ -21,11 +21,11 @@
 				<div class="con">
 					<h2>{{ active.title }}</h2>
 					<ul>
-						<li><font>出发时间：{{ active.go_time|date:"Y/m/d" }}</font></li>
-						<li>活动咨询：<span>{{ active.phone }}</span><p>集合地点：<span>{{ active.address }}</span></p></li>
-						<li>活动费用：<label>￥{{ active.price|floatformat:"2" }}</label></li>
+						<li><font>timing：{{ active.go_time|date:"Y/m/d" }}</font></li>
+						<li>activity info：<span>{{ active.phone }}</span><p>meeting point：<span>{{ active.address }}</span></p></li>
+						<li>fees：<label>￥{{ active.price|floatformat:"2" }}</label></li>
 					</ul>
-					<div class="buy"><a href="{% url 'operation:travelbuy' %}?list_type=active&id={{ active.id }}">立即报名</a><span>参团人数：{{ active.now_num }}/{{ active.all_num }}</span></div>
+					<div class="buy"><a href="{% url 'operation:travelbuy' %}?list_type=active&id={{ active.id }}">suscribe</a><span>attenders：{{ active.now_num }}/{{ active.all_num }}</span></div>
 				</div>
 				<div class="clear"></div>
 			</div>
@@ -62,7 +62,7 @@
 				<div id="comment">
 					<div class="list">
 						<div class="tag">
-							<a class="cur" href="javascript:void(0);">活动评论({{ comments.count }})</a>
+							<a class="cur" href="javascript:void(0);">commets({{ comments.count }})</a>
 						</div>
 						<ul>
                             {% for comment in comments %}
@@ -71,7 +71,7 @@
 								<div class="con">
 									<label>{{ comment.user.nickname }}</label>
 									<p>{{ comment.comments }}</p>
-									<span>发表于：{{ comment.add_time|date:"Y-m-d H:i"}}</span>
+									<span>post：{{ comment.add_time|date:"Y-m-d H:i"}}</span>
 								</div>
 							</li>
                             {% endfor %}

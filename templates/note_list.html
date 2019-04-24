@@ -4,14 +4,14 @@
 <!------------------游记文章-------------------->
 <div id="note_list">
 	<div class="banner">
-		<h2>游记文章</h2>
-		<p>记录精彩瞬间，保存美好回忆</p>
+		<h2>travel notes</h2>
+		<p>remember your travel, share your travel</p>
 	</div>
 	<div class="tag">
 		<div class="cw1200">
-			<a {% if diary_type == 'new' %}class="cur"{% endif %} href="{% url 'diarys:all' 'new' %}">最新游记</a><span></span>
-			<a {% if diary_type == 'hot' %}class="cur"{% endif %} href="{% url 'diarys:all' 'hot' %}">发现精彩</a><span></span>
-			<a href="{% url 'diarys:getdiaray' 0 %}">我要写游记</a>
+			<a {% if diary_type == 'new' %}class="cur"{% endif %} href="{% url 'diarys:all' 'new' %}">latest news</a><span></span>
+			<a {% if diary_type == 'hot' %}class="cur"{% endif %} href="{% url 'diarys:all' 'hot' %}">discover</a><span></span>
+			<a href="{% url 'diarys:getdiaray' 0 %}">write notes</a>
 		</div>
 	</div>
 	<div class="con">
@@ -31,7 +31,7 @@
 						</div>
 						<div class="meta">
 							<p><a href="{% url 'diarys:details' diary.id %}">{{ diary.title }}</a></p>
-							<span>{{ diary.add_times|date:"Y/m/d"  }} 作者：{{ diary.user.nickname }}<label>
+							<span>{{ diary.add_times|date:"Y/m/d"  }} author：{{ diary.user.nickname }}<label>
                                 <img src="{% static 'images/state_icon1.png' %}"/>{{ diary.checknum }}</label><label>
                                 <img src="{% static 'images/state_icon2.png' %}"/>{{ diary.commentsnum }}</label>
                             </span>

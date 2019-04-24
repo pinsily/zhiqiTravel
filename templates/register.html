@@ -33,29 +33,29 @@
 		
 		<div class="tag">
 			<ul>
-				<li><a href="{% url 'login' %}">登录</a></li>
-				<li><a class="cur" href="register.html">注册</a></li>
+				<li><a href="{% url 'login' %}">login</a></li>
+				<li><a class="cur" href="register.html">register</a></li>
 				<div class="clear"></div>
 			</ul>
 		</div>
 		<table class="table_list">
 			<form method="post" action="{% url 'register' %}">
 				<tr>
-					<td><input class="text" name="email" type="text" placeholder="登陆邮箱"></td>
+					<td><input class="text" name="email" type="text" placeholder="email"></td>
 				</tr>
 				<tr>
-					<td><input class="text" name="password" type="password" placeholder="8-20位非中文字符密码"></td>
+					<td><input class="text" name="password" type="password" placeholder="8-20code"></td>
 				</tr>
 				<tr>
 					<td>
-                        <input style="width:60%;" id="id_captcha_1" class="form-control user_captcha text" placeholder="请输入计算结果" autocomplete="off" autocapitalize="off" spellcheck="false" name="captcha_1" type="text" >
+                        <input style="width:60%;" id="id_captcha_1" class="form-control user_captcha text" placeholder="please input answer" autocomplete="off" autocapitalize="off" spellcheck="false" name="captcha_1" type="text" >
                         <img style="margin-left:10px;" class="captcha" alt="captcha" src="{{image_url}}">
                         <input id="id_captcha_0" name="captcha_0" value="{{hashkey}}" type="hidden">
                         {{form.captcha.errors}}
 				</tr>
                 <div style="color:red">{% for key,error in register_form.errors.items %}{{ error }}{% endfor %}{{ msg }}</div>
 				<tr>
-					<td><input class="submit" type="submit" value="注册"></td>
+					<td><input class="submit" type="submit" value="register"></td>
 				</tr>
             {% csrf_token %}
 			</form>

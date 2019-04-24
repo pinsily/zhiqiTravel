@@ -1,9 +1,9 @@
 {% extends 'write_note.html' %}
 {% load staticfiles %}
-{% block title %}修改游记{% endblock %}
+{% block title %}modifie note{% endblock %}
 {% block editor %}
-    $(".express").val("修改")
-    $(".save").val("保存修改")
+    $(".express").val("modifie")
+    $(".save").val("save")
     $(".express").click(function(){
         submit("{% url 'diarys:editor' 0 %}");
     });

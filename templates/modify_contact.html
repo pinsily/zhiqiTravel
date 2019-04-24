@@ -2,7 +2,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <title>修改联系人</title>
+    <title>modify contacts</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <!-------------jquery库-------------->
   	<script type="text/javascript" src="{% static 'js/jquery-1.8.3.min.js' %}"></script>
@@ -18,14 +18,14 @@
 			<!-----------------修改联系人---------------->
 			<div id="set_box">
             <form method="post" action="{% url 'modify_contact' contact.id %}">
-				<div class="title"><h2>修改联系人</h2></div>
+				<div class="title"><h2>modify contact</h2></div>
 				<table class="table_list">
 					<tr>
-						<th>姓名：</th>
+						<th>name：</th>
 						<td><input class="text" type="text" name="name" value="{{ contact.name }}"/></td>
 					</tr>
 					<tr>
-						<th>所在地区：</th>
+						<th>address：</th>
 						<td>
                             <select id="pro" class="am-radio" style="padding: 0">
 {#
@@ -40,28 +40,28 @@
                         </td>
 					</tr>
 					<tr>
-						<th>详细地址：</th>
+						<th>details：</th>
 						<td><textarea name="address" >{{ contact.address }}</textarea></td>
 					</tr>
 					<tr>
-						<th>手机号码：</th>
+						<th>phone number：</th>
 						<td><input class="text" type="text" name="mobile" value="{{ contact.mobile }}"/></td>
 					</tr>
 					<tr>
-						<th>邮政编码：</th>
+						<th>zip code：</th>
 						<td><input class="text" type="text" name="zip_code" value="{{ contact.zip_code }}" /></td>
 					</tr>
 					<tr>
 						<td colspan="2">
 							<label class="am-checkbox">
 								<input name="is_default" type="checkbox" id="checkbox_a1" class="chk_1" {% if contact.is_default %}checked{% endif %} />
-								<label for="checkbox_a1"></label> 设置为默认
+								<label for="checkbox_a1"></label> set as default
 							</label>
 						</td>
 					</tr>
 				</table>
 				{% csrf_token %}
-				<div class="operation"><input type="submit" class="save" value="保存" /></div>
+				<div class="operation"><input type="submit" class="save" value="save" /></div>
             </form>
 			</div>
 		</div>	
@@ -115,8 +115,8 @@
             $('#pro').change(function () {
                 $.get('/city_' + $(this).val() + '/', function (dict) {
                     city = $('#city');
-                    city.empty().append('<option value="">市</option>');
-                    $('#county').empty().append('<option value="">区/县</option>');
+                    city.empty().append('<option value="">city</option>');
+                    $('#county').empty().append('<option value=""> district </option>');
                     $.each(dict.city, function (index, item) {
                         city.append('<option value=' + item[0] + '>' + item[1] + '</option>');
                     })
@@ -127,7 +127,7 @@
             $('#city').change(function () {
                 $.get('/county_' + $(this).val() + '/', function (dict) {
                     county = $('#county');
-                    county.empty().append('<option value="">区/县</option>');
+                    county.empty().append('<option value="">district</option>');
                     $.each(dict.coun, function (index, item) {
                         county.append('<option value=' + item[0]+ '>' + item[1] + '</option>');
                     })
