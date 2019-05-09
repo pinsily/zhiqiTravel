@@ -1,7 +1,3 @@
-# @Time    : 18-10-10
-# @Author  : Zhiqi Kou
-# @Email   : zhiqi1028@gmail.com
-
 import xadmin
 from xadmin import views
 
@@ -34,4 +30,4 @@ class BaseSetting:
 
 xadmin.site.register(News, NewsAdmin)
 xadmin.site.register(views.CommAdminView, GlobalSettings)
-xadmin.site.register(views.BaseAdminView,BaseSetting)
+xadmin.site.register(views.BaseAdminView, BaseSetting)

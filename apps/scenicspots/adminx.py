@@ -1,14 +1,9 @@
-# @Time    : 18-10-15
-# @Author  : Zhiqi Kou
-# @Email   : zhiqi1028@gmail.com
-
 import xadmin
-from xadmin import views
 
 from .models import *
 
 
-class SpotsAdmin:
+class SpotsAdmin(object):
     """
     景点后台管理
     """
@@ -20,12 +15,12 @@ class SpotsAdmin:
     style_fields = {"content": "ueditor"}
 
 
-class GalleryAdmin:
+class GalleryAdmin(object):
     list_display = ['spots', 'title', 'image', 'add_time']
     model_icon = 'fa fa-picture-o'
 
 
-class ActiveAdmin:
+class ActiveAdmin(object):
     """
     活动后台管理
     """

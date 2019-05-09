@@ -22,19 +22,17 @@ from pay.views import AliPayTestView
 from zhiqiTravel.settings import MEDIA_ROOT, STATIC_ROOT
 
 urlpatterns = [
-    # path('admin/', admin.site.urls),
+    path('admin/', admin.site.urls),
 
     # 工具
     re_path(r'^captcha/', include('captcha.urls')),
     path('xadmin/', xadmin.site.urls),
     path('ueditor/', include('DjangoUeditor.urls')),
 
-
     # 获取省市区信息
     path('province/', ProvinceView.as_view(), name='province'),
     path('city_<int:pid>/', CityView.as_view(), name='city'),
     path('county_<int:pid>/', CountyView.as_view(), name='county'),
-
 
     # 网站页面
     # 主页
@@ -89,9 +87,8 @@ urlpatterns = [
     path('pay/', include(('pay.urls', 'pay')), name='pay'),
 
     # 用户上传文件路径
-    re_path(r'media/(?P<path>.*)$',serve,{"document_root": MEDIA_ROOT}),
+    re_path(r'media/(?P<path>.*)$', serve, {"document_root": MEDIA_ROOT}),
 
     # static文件路径
-    re_path(r'static/(?P<path>.*)$',serve,{"document_root": STATIC_ROOT}),
+    re_path(r'static/(?P<path>.*)$', serve, {"document_root": STATIC_ROOT}),
 ]
-
