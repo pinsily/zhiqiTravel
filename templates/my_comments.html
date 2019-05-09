@@ -7,10 +7,10 @@
 	<div class="public_box pd30">
 		<div class="public_tag">
 			<ul>
-				<li><a {% if comments_type == 'note' %}class="cur"{% endif %} href="?comments_type=note">游记评论</a></li>
-				<li><a {% if comments_type == 'scenic' %}class="cur"{% endif %} href="?comments_type=scenic">景区评论</a></li>
-				<li><a {% if comments_type == 'active' %}class="cur"{% endif %} href="?comments_type=active">活动评论</a></li>
-				<li><a {% if comments_type == 'project' %}class="cur"{% endif %} href="?comments_type=project">商品评论</a></li>
+				<li><a {% if comments_type == 'note' %}class="cur"{% endif %} href="?comments_type=note">notes comments</a></li>
+				<li><a {% if comments_type == 'scenic' %}class="cur"{% endif %} href="?comments_type=scenic">scenery comment</a></li>
+				<li><a {% if comments_type == 'active' %}class="cur"{% endif %} href="?comments_type=active">activity comment</a></li>
+				<li><a {% if comments_type == 'project' %}class="cur"{% endif %} href="?comments_type=project">goods comment</a></li>
 				<div class="clear"></div>
 			</ul>
 		</div>
@@ -24,14 +24,14 @@
 						<div class="pic"><img src="{{ MEDIA_URL }}{{ comment.diary.user.portrait }}"/></div>
 						<div class="con">
 							<a href="{% url 'diarys:details' comment.diary.id %}"><h3>{{ comment.diary.title }}</h3></a>
-							<p>作者：<span>{{ comment.diary.user.nickname }}</span><label>{{ comment.diary.commentsnum }}个评论</label></p>
+							<p>author：<span>{{ comment.diary.user.nickname }}</span><label>{{ comment.diary.commentsnum }}个评论</label></p>
 						</div>
 					</div>
 					<div class="text">
-						<p>我评论：{{ comment.comments }}</p>
+						<p>comment：{{ comment.comments }}</p>
 					</div>
 					<div class="del" style="top:65px;">
-						<a href="#"><i class="del_ico"></i>删除评论</a>
+						<a href="#"><i class="del_ico"></i>delete</a>
 					</div>
 				</li>
                 {% endfor %}
@@ -45,9 +45,9 @@
 				    <li class="pd_r150">
 					<div class="scenic">
                         {% if comment.spots.classification == 'natural' %}
-                            <div class="tip"><img src="{% static 'images/scenic_ico.png' %}">景区</div>
+                            <div class="tip"><img src="{% static 'images/scenic_ico.png' %}">scenery</div>
                         {% elif comment.spots.classification == 'leisure' %}
-                            <div class="tip"><img src="{% static 'images/leisure_ico.png' %}">休闲</div>
+                            <div class="tip"><img src="{% static 'images/leisure_ico.png' %}">enterment</div>
                         {% else %}
 
                         {% endif %}
@@ -55,10 +55,10 @@
                     <div class="clear"></div>
                     </div>
 					<div class="text">
-						<p>我评论：{{ comment.comments }}</p>
+						<p>comment：{{ comment.comments }}</p>
 					</div>
 					<div class="del" style="top:52px;">
-						<a href="#"><i class="del_ico"></i>删除评论</a>
+						<a href="#"><i class="del_ico"></i>delete</a>
 					</div>
 				</li>
                 {% endfor %}
@@ -75,10 +75,10 @@
 						<label>￥{{ comment.active.price }}</label>
 					</div>
 					<div class="text">
-						<p>我评论：{{ comment.comments }}</p>
+						<p>comment：{{ comment.comments }}</p>
 					</div>
 					<div class="del" style="top:65px;">
-						<a href="#"><i class="del_ico"></i>删除评论</a>
+						<a href="#"><i class="del_ico"></i>delete</a>
 					</div>
 				</li>
                 {% endfor %}
@@ -95,10 +95,10 @@
 						<label>￥{{ comment.product.price }}</label>
 					</div>
 					<div class="text">
-						<p>我评论：{{ comment.comments }}</p>
+						<p>comment：{{ comment.comments }}</p>
 					</div>
 					<div class="del" style="top:65px;">
-						<a href="#"><i class="del_ico"></i>删除评论</a>
+						<a href="#"><i class="del_ico"></i>delete</a>
 					</div>
 				</li>
                 {% endfor %}

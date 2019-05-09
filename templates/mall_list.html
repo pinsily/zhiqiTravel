@@ -1,5 +1,5 @@
 {% extends 'news_list.html' %}
-{% block title %}商城列表{% endblock %}
+{% block title %}shopping spots{% endblock %}
 {% load staticfiles %}
 {% block left %}
 <div class="public_box bg1">
@@ -14,13 +14,13 @@
 				</div>
 				<!------------------列表分类-------------------->
 				<div id="list_sort">
-					<span>产品类型：</span>
+					<span>articles：</span>
 					<div class="list_1">
-						<a {% if pro_type == '' %}class="cur"{% endif %} href="?pro_type=">全部</a>
-						<a {% if pro_type == 'ncp' %}class="cur"{% endif %} href="?pro_type=ncp">农产品</a>
-						<a {% if pro_type == 'sg' %}class="cur"{% endif %} href="?pro_type=sg">水果</a>
-						<a {% if pro_type == 'gyp' %}class="cur"{% endif %} href="?pro_type=gyp">工艺品</a>
-						<a {% if pro_type == 'fsp' %}class="cur"{% endif %} href="?pro_type=fsp">副食品</a>
+						<a {% if pro_type == '' %}class="cur"{% endif %} href="?pro_type=">all</a>
+						<a {% if pro_type == 'ncp' %}class="cur"{% endif %} href="?pro_type=ncp">foods</a>
+						<a {% if pro_type == 'sg' %}class="cur"{% endif %} href="?pro_type=sg">fruits</a>
+						<a {% if pro_type == 'gyp' %}class="cur"{% endif %} href="?pro_type=gyp">souvenirs</a>
+						<a {% if pro_type == 'fsp' %}class="cur"{% endif %} href="?pro_type=fsp">snaks</a>
 						<div class="clear"></div>
 					</div>
 
@@ -38,14 +38,14 @@
 							</div>
 							<div class="price">
 								<p>￥<label>{{ pro.price|floatformat:"2" }}</label></p>
-								<span>运费: {{ pro.freight|floatformat:"2" }}</span>
+								<span>shipping fees: {{ pro.freight|floatformat:"2" }}</span>
 							</div>
 							<div class="other">
-								<span>{{ pro.buyers }}人付款</span>
-                                <span>{{ pro.comments }}条评论</span>
+								<span>{{ pro.buyers }}purchaissed times</span>
+                                <span>{{ pro.comments }}comments</span>
 							</div>
 							<div class="view">
-								<a href="{% url 'shop:pro_detail' pro.id %}">查看详情</a>
+								<a href="{% url 'shop:pro_detail' pro.id %}">details</a>
 							</div>
 							<div class="clear"></div>
 						</li>

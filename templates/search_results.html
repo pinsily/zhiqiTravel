@@ -1,6 +1,6 @@
 {% extends 'shopbase.html' %}
-{% block title %}搜索结果{% endblock %}
-{% block head_title %}搜索结果{% endblock %}
+{% block title %}search{% endblock %}
+{% block head_title %}search{% endblock %}
 {% load staticfiles %}
 {% block content %}
 <div id="shop_car">
@@ -59,7 +59,7 @@
             </li>
             {% endfor %}
         {% else %}
-            <h1>搜索失败！</h1>
+            <h1>search fail！</h1>
         {% endif %}
 
         </ul>

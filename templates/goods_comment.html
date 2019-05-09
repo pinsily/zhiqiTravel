@@ -1,6 +1,6 @@
 ﻿{% extends 'shopbase.html' %}
-{% block title %}订单评价{% endblock %}
-{% block head_title %}订单评价{% endblock %}
+{% block title %}comment order {% endblock %}
+{% block head_title %}comment order{% endblock %}
 {% block content %}
 <!-----------------发布评论---------------->
 <div id="post_comment">
@@ -17,18 +17,18 @@
 			</div>
                 <form action="{% url 'operation:commentsgoods' %}?product_id={{ product.good_id }}&order_num={{ product.order_num }}" method="post">
                     <div class="text_input">
-                        <textarea name="comment" placeholder="填写评论内容"></textarea>
+                        <textarea name="comment" placeholder="write your comments"></textarea>
                     </div>
                     {% csrf_token %}
                 </form>
                 <div class="tip">
-                    <p>对商品评论后，可获得最多100积分的奖励哦！</p>
+                    <p>earn 100 points by giving your review！</p>
                 </div>
 			<div class="h50"></div>
 
             {% endfor %}
 			<div class="button">
-				<input class="submit" type="button" value="发表评论"/>
+				<input class="submit" type="button" value="comment"/>
 			</div>
 		</div>
 	</div>

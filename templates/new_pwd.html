@@ -33,22 +33,22 @@
 		
 		<div class="tag">
 			<ul>
-                <li><a>新密码</a></li>
+                <li><a>new password</a></li>
 				<div class="clear"></div>
 			</ul>
 		</div>
 		<table class="table_list">
 			<form method="post" action="{% url 'new_pwd' %}">
 				<tr>
-					<td><input class="text" name="pwd1" type="password" placeholder="新密码"></td>
+					<td><input class="text" name="pwd1" type="password" placeholder="new password"></td>
 				</tr>
                 <tr>
-					<td><input class="text" name="pwd2" type="password" placeholder="再次输入新密码"></td>
+					<td><input class="text" name="pwd2" type="password" placeholder="new password again"></td>
 				</tr>
                 <input type="hidden" name="email" value="{{ email }}">
                 <div style="color:red">{% for key,error in newpwd_form.errors.items %}{{ error }}{% endfor %}{{ msg }}</div>
 				<tr>
-					<td><input class="submit" type="submit" value="提交"></td>
+					<td><input class="submit" type="submit" value="submit"></td>
 				</tr>
             {% csrf_token %}
 			</form>

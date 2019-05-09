@@ -7,44 +7,44 @@
 			<!-----------------常用联系人---------------->
 			<div id="set_box">
             <form method="post" action="{% url 'setting' 'contact' %}">
-				<div class="title"><h2>常用联系人</h2></div>
+				<div class="title"><h2>contract</h2></div>
 				<table class="table_list">
 					<tr>
-						<th>姓名：</th>
+						<th>name：</th>
 						<td><input class="text" type="text" name="name" value=""/></td>
 					</tr>
 					<tr>
-						<th>所在地区：</th>
+						<th>address：</th>
                         <td>
                             <select id="pro" class="am-radio" style="padding: 0">
-                                        <option value="">省</option>
+                                        <option value="">province</option>
                             </select>
                             <select id="city" class="am-radio" style="padding: 0">
-                                        <option value="">市</option>
+                                        <option value="">city</option>
                             </select>
                             <select id="county" class="am-radio" style="padding: 0" name="city_addr">
-                                        <option value="">区/县</option>
+                                        <option value="">dictrict</option>
                             </select>
                             <div id="city_addr"></div>
                         </td>
 					</tr>
 					<tr>
-						<th>详细地址：</th>
+						<th>detailed address：</th>
 						<td><textarea name="address"></textarea></td>
 					</tr>
 					<tr>
-						<th>手机号码：</th>
+						<th>phone：</th>
 						<td><input class="text" type="text" name="mobile" /></td>
 					</tr>
 					<tr>
-						<th>邮政编码：</th>
+						<th>post code：</th>
 						<td><input class="text" type="text" name="zip_code" /></td>
 					</tr>
 					<tr>
 						<td colspan="2">
 							<label class="am-checkbox">
 								<input name="is_default" type="checkbox" id="checkbox_a1" class="chk_1"  />
-								<label for="checkbox_a1"></label> 设置为默认
+								<label for="checkbox_a1"></label> set default
 							</label>
 						</td>
 					</tr>
@@ -54,16 +54,16 @@
             </form>
 				<!-----------------联系列表---------------->
 				<ul class="address">
-					<li class="title">已保存{{ alreadycount }}条地址，还能保存{{ remainingcount }}条</li>
+					<li class="title">saved{{ alreadycount }}addresses，and you can add other {{ remainingcount }} contract</li>
                     {% for contact in all_contacts %}
 					<li>
 						<div>
-							<div class="dt">联系人：</div>
+							<div class="dt">contract：</div>
 							<div class="dd">{{ contact.name }}</div>
 							<div class="clear"></div>
 						</div>
 						<div>
-							<div class="dt">详细地址：</div>
+							<div class="dt">detailed address：</div>
 							<div class="dd">
 								<p>{{ contact.city }}</p>
 								<p>{{ contact.address }}</p>
@@ -71,24 +71,24 @@
 							<div class="clear"></div>
 						</div>
 						<div>
-							<div class="dt">邮政编码：</div>
+							<div class="dt">post code：</div>
 							<div class="dd">{{ contact.zip_code }}</div>
 							<div class="clear"></div>
 						</div>
 						<div>
-							<div class="dt">手机号码：</div>
+							<div class="dt">phone：</div>
 							<div class="dd">{{ contact.mobile }}</div>
 							<div class="clear"></div>
 						</div>
 						<a class="i-first" id="setdefault" href="{% url 'default_contact' contact.id %}">
                             {% if contact.is_default == True %}
-						        默认地址
+						        default address
                             {% else %}
-                                设为默认地址
+                                set default
 						    {% endif %}
                         </a>
 							<div class="btns">
-							<a href="{% url 'modify_contact' contact.id %}" data-id="183590" class="modifyThis">修改</a> / <a href="{% url 'delete_contact' contact.id %}" data-id="183590" class="delThis">删除</a>
+							<a href="{% url 'modify_contact' contact.id %}" data-id="183590" class="modifyThis">modifity</a> / <a href="{% url 'delete_contact' contact.id %}" data-id="183590" class="delThis">delete</a>
 						</div>
                     {% endfor %}
                 </ul>
@@ -113,8 +113,8 @@
             $('#pro').change(function () {
                 $.get('/city_' + $(this).val() + '/', function (dict) {
                     city = $('#city');
-                    city.empty().append('<option value="">市</option>');
-                    $('#county').empty().append('<option value="">区/县</option>');
+                    city.empty().append('<option value="">city</option>');
+                    $('#county').empty().append('<option value="">district</option>');
                     $.each(dict.city, function (index, item) {
                         city.append('<option value=' + item[0] + '>' + item[1] + '</option>');
                     })
@@ -125,7 +125,7 @@
             $('#city').change(function () {
                 $.get('/county_' + $(this).val() + '/', function (dict) {
                     county = $('#county');
-                    county.empty().append('<option value="">区/县</option>');
+                    county.empty().append('<option value=""district</option>');
                     $.each(dict.coun, function (index, item) {
                         county.append('<option value=' + item[0]+ '>' + item[1] + '</option>');
                     })
