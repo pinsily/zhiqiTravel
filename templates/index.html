@@ -6,7 +6,7 @@
 <div class="h_banner">
 	<ul class="h_b_list">
         {% for banner in banners %}
-        <li><a style="background:url({{ MEDIA_URL }}{{ banner.image }}) no-repeat center; background-size: 100% 100%;" href="{{ banner.url }}"></a></li>
+        <li><a style="background:url({{ MEDIA_URL }}{{ banner.image }}) no-repeat center; background-size: 80% 100%;" href="{{ banner.url }}"></a></li>
         {% endfor %}
 	</ul>
 	<a class="prev" href="javascript:void(0)"></a>
@@ -33,7 +33,7 @@ $(".h_banner").slide({ titCell:".num ul" , mainCell:".h_b_list" , effect:"fold",
 <div class="h_bg1_g"></div>
 <div id="h_activity">
     <div class="cw1200" style="width: 1500px">
-        <div class="title"><img alt="" src="{% static 'images/h_title1.png' %}"/></div>
+        <div class="title"><a href="{% url 'scenicspots:all' %}?list_type=active"><img alt="" src="{% static 'images/h_title1.png' %}"/></a></div>
         <div class="con">
             {% for active in actives %}
             <div class="box" style="width: 480px;">
@@ -49,10 +49,10 @@ $(".h_banner").slide({ titCell:".num ul" , mainCell:".h_b_list" , effect:"fold",
     </div>
 </div>
 <div class="h_bg1_g"></div>
-<!------------------洛阳旅游-------------------->
+<!------------------旅游-------------------->
 <div id="h_scenic">
     <div class="cw1200">
-        <div class="title"><img alt="" src="{% static 'images/h_title2.png' %}"/></div>
+        <div class="title"><a href="{% url 'scenicspots:all' %}?list_type=scenic"><img alt="" src="{% static 'images/h_title2.png' %}"/></a></div>
         <div class="con">
             <div class="tag"><img alt="" src="{% static 'images/h_title2_t.jpg' %}"/></div>
             <div class="box">
@@ -81,7 +81,7 @@ $(".h_banner").slide({ titCell:".num ul" , mainCell:".h_b_list" , effect:"fold",
 <!------------------洛阳特产-------------------->
 <div id="h_project">
     <div class="cw1200">
-        <div class="title"><img alt="" src="{% static 'images/h_title4.png' %}"/></div>
+        <div class="title"><a href="{% url 'shop:all' %}"><img alt="" src="{% static 'images/h_title4.png' %}"/></a></div>
         <div class="con">
             <ul>
                 {% for product in products %}
